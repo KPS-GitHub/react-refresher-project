@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 const titles = ['Title 1', 'Title 2']
 
 function Post({title, body}) {
-    const chosenTitle = Math.random() > 0.5 ? titles[0] : titles[1];
+    // const chosenTitle = Math.random() > 0.5 ? titles[0] : titles[1];
     return (
         <>
-            <h4>{chosenTitle}</h4>
+            <h4>{title}</h4>
             <p>{body}</p>
         </>
     )
