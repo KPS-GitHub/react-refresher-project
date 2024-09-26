@@ -7,7 +7,7 @@ function App() {
     <>
       <h1>Hello World!</h1>
       <div id="post-box">
-        {postData.map((post, i) => <Post title={post.title} body={post.body} />)}
+        {postData.map((post) => <Post title={post.title} body={post.body} />)}
         {/* <Post title="Test Title from props" body="test body from props" /> */}
       </div>
     </>
