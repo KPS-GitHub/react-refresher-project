@@ -8,7 +8,7 @@ function App() {
     <>
       <NewPostForm />
       <div id="post-box">
-        {postData.map((post) => <Post title={post.title} body={post.body} />)}
+        {postData.map((post,i) => <Post key={`post-${i}`} title={post.title} body={post.body} />)}
       </div>
     </>
     
