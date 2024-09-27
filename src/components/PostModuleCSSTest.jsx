@@ -1,4 +1,4 @@
-function PostTest() {
+function PostModuleCSSTest() {
     return(
         <div className="post-test post">
             <h4>PostTest title</h4>
@@ -7,4 +7,4 @@ function PostTest() {
     )
 }
 
-export default PostTest;
+export default PostModuleCSSTest;
