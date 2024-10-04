@@ -1,0 +1,14 @@
+.appWrap {
+    padding: 0 10%;
+}
+
+.postBox {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.newPostBox {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+}

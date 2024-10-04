@@ -26,6 +26,18 @@
     color: #28262c;
 }
 
+.form input[type="submit"] {
+    background: auto;
+    color: auto;
+    transition: all .3s ease;
+}
+.form input[type="submit"]:hover {
+    cursor: pointer;
+    background: black;
+    color: white;
+    transition: all .3s ease;
+}
+
 .actions {
     display: flex;
     justify-content: flex-end;

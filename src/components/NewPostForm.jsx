@@ -1,27 +1,19 @@
 import { useState } from "react";
 import classes from "./NewPostForm.module.css";
 
-function NewPostForm() {
-    const [enteredBody, setEnteredBody] = useState('');
-    const [enteredName, setEnteredName] = useState('');
-
-    function changeBodyHandler(event) {
-        setEnteredBody(event.target.value);
-    }
-    function changeNameHandler(event) {
-        setEnteredName(event.target.value);
-    }
+function NewPostForm({onBodyChange, onAuthorChange, onSubmit}) {
 
     return (
-        <form className={classes.form}>
+        <form onSubmit={onSubmit} className={classes.form}>
             <p>
                 <label htmlFor="body">Text</label>
-                <textarea id="body" required rows={3} onChange={changeBodyHandler} />
+                <textarea id="body" required rows={3} onChange={onBodyChange} />
             </p>
             <p>
                 <label htmlFor="name">Your name</label>
-                <input type="text" id="name" required onChange={changeNameHandler } />
+                <input type="text" id="name" required onChange={onAuthorChange } />
             </p>
+            <button type="submit" >Submit</button>
         </form>
     );
 }

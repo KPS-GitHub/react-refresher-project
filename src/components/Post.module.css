@@ -1,3 +1,10 @@
-.post {
+.post, .newPost {
     background: black;
+    margin: 1rem;
+    padding: .5rem;
+    width: 15rem;
+    min-height: 10rem;
+}
+.newPost {
+    background: darkslategray;
 }
