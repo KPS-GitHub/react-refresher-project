@@ -7,8 +7,18 @@
     flex-wrap: wrap;
 }
 
+.newPostButton {
+    margin: 5rem;
+    padding: 1rem 3rem;
+    font-size: 2rem;
+    background-color: darkslategray;
+    color: white;
+}
+.newPostButton:hover {
+    cursor: pointer;
+}
 .newPostBox {
     display: flex;
     justify-content: center;
-    margin-bottom: 4rem;
+    margin: 10rem 0 4rem;
 }
