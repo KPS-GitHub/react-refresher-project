@@ -9,11 +9,14 @@ import MainHeader from "./components/MainHeader";
 
 
 function App() {
+  const [isNewPostVisible, setIsNewPostVisible] = useState(true);
   const [newPostBody, setNewPostBody] = useState('New Post Body');
   const [newPostAuthor, setNewPostAuthor] = useState('New Post Author');
   const [allPosts, setAllPosts] = useState([{ author: "Post 1 Author", body: "Post 1 Body" }, { author: "Post 2 Author", body: "Post 2 Body" }, { author: "Post 3 Author", body: "Post 3 Body" }])
-  const [isNewPostVisible, setIsNewPostVisible] = useState(true);
 
+  function toggleNewPostVisibleHandler() {
+    setIsNewPostVisible(!isNewPostVisible);
+  }
   function newPostBodyChangeHandler(event) {
     setNewPostBody(event.target.value);
   }
@@ -38,9 +41,6 @@ function App() {
         input.selectedIndex = 0;
       }
     });
-  }
-  function toggleNewPostVisibleHandler() {
-    setIsNewPostVisible(!isNewPostVisible);
   }
 
   // // alternative modal toggle approach (instead of the ternary in the return statement - replace that whole thing with {newPostContent} to enable this approach)
