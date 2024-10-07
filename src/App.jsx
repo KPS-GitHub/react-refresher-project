@@ -2,6 +2,7 @@ import { useState } from "react";
 import NewPostForm from "./components/NewPostForm";
 import Post from "./Components/Post";
 import classes from "./App.module.css";
+import Modal from "./components/Modal";
 
 
 
@@ -39,7 +40,9 @@ function App() {
 
   return (
     <div className={classes.appWrap}>
-      <NewPostForm onBodyChange={newPostBodyChangeHandler} onAuthorChange={newPostAuthorChangeHandler} onSubmit={newPostSubmitHandler} />
+      <Modal>
+        <NewPostForm onBodyChange={newPostBodyChangeHandler} onAuthorChange={newPostAuthorChangeHandler} onSubmit={newPostSubmitHandler} />
+      </Modal>
       <div className={classes.newPostBox}>
         <Post key='new-post' author={newPostAuthor} body={newPostBody} newPost={true} />
       </div>
