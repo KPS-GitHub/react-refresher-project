@@ -7,4 +7,6 @@
 }
 .newPost {
     background: darkslategray;
+    position: relative;
+    z-index: 100;
 }

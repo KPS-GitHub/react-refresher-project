@@ -3,6 +3,7 @@ import NewPostForm from "./components/NewPostForm";
 import Post from "./Components/Post";
 import classes from "./App.module.css";
 import Modal from "./components/Modal";
+import MainHeader from "./components/MainHeader";
 
 
 
@@ -54,14 +55,12 @@ function App() {
           <Post key='new-post' author={newPostAuthor} body={newPostBody} newPost={true} />
         </div>
       </>;
-  } else {
-    newPostContent = <button className={classes.newPostButton} onClick={toggleNewPostVisibleHandler}>New Post</button>
   }
 
   return (
     <div className={classes.appWrap}>
+      <MainHeader toggleNewPostVisibleHandler={toggleNewPostVisibleHandler}/>
       {newPostContent}
-
       {/* alternative approach to conditional rendering of new post content */}
       {/* {isNewPostVisible ?
         <>
