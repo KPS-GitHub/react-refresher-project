@@ -4,7 +4,7 @@ import classes from './Post.module.css';
 
 function Post({author, body, newPost}) {
     return (
-        <div className={newPost ? classes.newPost : classes.post}>
+        <div className={newPost ? classes.post+' '+classes.newPost : classes.post}>
             <h4>{author}</h4>
             <p>{body}</p>
         </div>

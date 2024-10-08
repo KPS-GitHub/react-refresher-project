@@ -1,6 +1,6 @@
 import { useState } from "react";
 import NewPostForm from "./components/NewPostForm";
-import Post from "./Components/Post";
+import Post from "./components/Post";
 import classes from "./App.module.css";
 import Modal from "./components/Modal";
 import MainHeader from "./components/MainHeader";
@@ -9,59 +9,28 @@ import MainHeader from "./components/MainHeader";
 
 
 function App() {
-  const [isNewPostVisible, setIsNewPostVisible] = useState(true);
-  const [newPostBody, setNewPostBody] = useState('New Post Body');
-  const [newPostAuthor, setNewPostAuthor] = useState('New Post Author');
+  const [isNewPostVisible, setIsNewPostVisible] = useState(false);
   const [allPosts, setAllPosts] = useState([{ author: "Post 1 Author", body: "Post 1 Body" }, { author: "Post 2 Author", body: "Post 2 Body" }, { author: "Post 3 Author", body: "Post 3 Body" }])
 
   function toggleNewPostVisibleHandler() {
     setIsNewPostVisible(!isNewPostVisible);
   }
-  function newPostBodyChangeHandler(event) {
-    setNewPostBody(event.target.value);
-  }
-  function newPostAuthorChangeHandler(event) {
-    setNewPostAuthor(event.target.value);
-  }
-  function newPostSubmitHandler(event) {
-    event.preventDefault();
-    // put the new post at the beginning of the allPosts array so that it shows up first in the post box
-    setAllPosts([{ author: newPostAuthor, body: newPostBody }, ...allPosts]);
-    // reset the new post state values
-    setNewPostBody('New Post Body');
-    setNewPostAuthor('New Post Author');
-    // clear the form input values
-    const form = event.target;
-    const inputs = form.querySelectorAll("input, textarea, select");
-    inputs.forEach(input => {
-      if (input.type !== "button" && input.type !== "submit" && input.type !== "reset") {
-        input.value = "";
-      }
-      if (input.tagName.toLowerCase() === "select") {
-        input.selectedIndex = 0;
-      }
-    });
-  }
 
-  // // alternative modal toggle approach (instead of the ternary in the return statement - replace that whole thing with {newPostContent} to enable this approach)
+
+  // conditional rendering of new post modal
   let newPostContent;
   if (isNewPostVisible) {
     newPostContent =
-      <>
-        <Modal toggleNewPostVisibleHandler={toggleNewPostVisibleHandler}>
-          <NewPostForm onBodyChange={newPostBodyChangeHandler} onAuthorChange={newPostAuthorChangeHandler} onSubmit={newPostSubmitHandler} />
-        </Modal>
-        <div className={classes.newPostBox}>
-          <Post key='new-post' author={newPostAuthor} body={newPostBody} newPost={true} />
-        </div>
-      </>;
+      <Modal toggleNewPostVisibleHandler={toggleNewPostVisibleHandler}>
+        <NewPostForm allPostsProp={allPosts} setAllPostsProp={setAllPosts} toggleNewPostVisibleHandlerProp={toggleNewPostVisibleHandler} />
+      </Modal>;
   }
 
   return (
     <div className={classes.appWrap}>
-      <MainHeader toggleNewPostVisibleHandler={toggleNewPostVisibleHandler}/>
+      <MainHeader toggleNewPostVisibleHandler={toggleNewPostVisibleHandler} />
       {newPostContent}
-      {/* alternative approach to conditional rendering of new post content */}
+      {/* alternative approach to conditional rendering of new post modal */}
       {/* {isNewPostVisible ?
         <>
           <Modal toggleNewPostVisibleHandler={toggleNewPostVisibleHandler}>

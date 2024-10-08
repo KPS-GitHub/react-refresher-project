@@ -17,8 +17,3 @@
 .newPostButton:hover {
     cursor: pointer;
 }
-.newPostBox {
-    display: flex;
-    justify-content: center;
-    margin: 7rem 0 4rem;
-}

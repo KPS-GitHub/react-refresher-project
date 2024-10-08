@@ -62,3 +62,10 @@
 .actions button[type='button']:hover {
     color: #d1bee6;
 }
+
+.newPostBox {
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: lightgray;
+}

@@ -1,5 +1,5 @@
 .backdrop {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -9,8 +9,8 @@
   }
   
   .modal {
-    position: relative;
-    top: 3rem;
+    position: absolute;
+    top: 10%;
     border: none;
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
