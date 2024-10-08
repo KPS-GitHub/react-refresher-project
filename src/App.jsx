@@ -22,7 +22,7 @@ function App() {
   if (isNewPostVisible) {
     newPostContent =
       <Modal toggleNewPostVisibleHandler={toggleNewPostVisibleHandler}>
-        <NewPostForm allPostsProp={allPosts} setAllPostsProp={setAllPosts} toggleNewPostVisibleHandlerProp={toggleNewPostVisibleHandler} />
+        <NewPostForm setAllPostsProp={setAllPosts} toggleNewPostVisibleHandlerProp={toggleNewPostVisibleHandler} />
       </Modal>;
   }
 
@@ -40,7 +40,7 @@ function App() {
       } */}
 
       <div className={classes.postBox}>
-        {allPosts.map((post, i) => <Post key={`post-${i}`} author={post.author} body={post.body} />)}
+        {allPosts.map((post, i) => <Post key={`post-${post.body}`} author={post.author} body={post.body} />)}
       </div>
     </div>
 

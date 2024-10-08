@@ -14,7 +14,8 @@ function Post({author, body, newPost}) {
 
 Post.propTypes = {
     author: PropTypes.string.isRequired,
-    body: PropTypes.string.isRequired
+    body: PropTypes.string.isRequired,
+    newPost: PropTypes.bool
 };
 
 export default Post;

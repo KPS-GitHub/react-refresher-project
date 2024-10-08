@@ -2,7 +2,7 @@ import { useState } from "react";
 import Post from "./Post";
 import classes from "./NewPostForm.module.css";
 
-function NewPostForm({ allPostsProp, setAllPostsProp, toggleNewPostVisibleHandlerProp }) {
+function NewPostForm({ setAllPostsProp, toggleNewPostVisibleHandlerProp }) {
     const [newPostBody, setNewPostBody] = useState('New Post Body');
     const [newPostAuthor, setNewPostAuthor] = useState('New Post Author');
 
