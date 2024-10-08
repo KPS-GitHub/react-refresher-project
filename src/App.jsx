@@ -31,16 +31,12 @@ function App() {
       <MainHeader toggleNewPostVisibleHandler={toggleNewPostVisibleHandler} />
       {newPostContent}
       {/* alternative approach to conditional rendering of new post modal */}
-      {/* {isNewPostVisible ?
+      {/* {isNewPostVisible &&
         <>
           <Modal toggleNewPostVisibleHandler={toggleNewPostVisibleHandler}>
             <NewPostForm onBodyChange={newPostBodyChangeHandler} onAuthorChange={newPostAuthorChangeHandler} onSubmit={newPostSubmitHandler} />
           </Modal>
-          <div className={classes.newPostBox}>
-            <Post key='new-post' author={newPostAuthor} body={newPostBody} newPost={true} />
-          </div>
         </>
-        : <button onClick={toggleNewPostVisibleHandler}>New Post</button>
       } */}
 
       <div className={classes.postBox}>
