@@ -14,10 +14,22 @@ function NewPostForm({ setAllPostsProp, toggleNewPostVisibleHandlerProp }) {
     }
     function newPostSubmitHandler(event) {
         event.preventDefault();
-        // update allPosts state to include the new post
-        // ---put the new post at the beginning of the allPosts array so that it shows up first in the post box
-        // ---always use a function inside of the state update when it involves an old state - ensures that React has the latest state to work with - without the function and if there were multiple state updates here, there would be a chance that React uses an outdated version of state due to how React schedules state updates during re-renders versus running the state updates right away
-        setAllPostsProp((currentAllPosts) => [{ author: newPostAuthor, body: newPostBody }, ...currentAllPosts]);
+        // grab input values
+        const postBody = event.target.body.value;
+        const postAuthor = event.target.name.value;
+        // send new post to backend
+        fetch('http://localhost:8080/posts', {
+            method: 'POST',
+            body: JSON.stringify({
+                "body": postBody,
+                "author": postAuthor
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        // fetch all posts from backend and replace the allPosts state with them
+        
         // reset the new post state values
         setNewPostBody('New Post Body');
         setNewPostAuthor('New Post Author');
