@@ -28,8 +28,6 @@ function NewPostForm({ setAllPostsProp, toggleNewPostVisibleHandlerProp }) {
                 'Content-Type': 'application/json'
             }
         })
-        // fetch all posts from backend and replace the allPosts state with them
-        
         // reset the new post state values
         setNewPostBody('New Post Body');
         setNewPostAuthor('New Post Author');

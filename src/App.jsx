@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NewPostForm from "./components/NewPostForm";
 import Post from "./components/Post";
 import classes from "./App.module.css";
@@ -10,7 +10,17 @@ import MainHeader from "./components/MainHeader";
 
 function App() {
   const [isNewPostVisible, setIsNewPostVisible] = useState(false);
-  const [allPosts, setAllPosts] = useState([{ author: "Post 1 Author", body: "Post 1 Body" }, { author: "Post 2 Author", body: "Post 2 Body" }, { author: "Post 3 Author", body: "Post 3 Body" }])
+  const [allPosts, setAllPosts] = useState([]);
+
+  useEffect(() => {
+    async function fetchPosts() {
+      const response = await fetch('http://localhost:8080/posts');
+      const resData = await response.json();
+      setAllPosts(resData.posts);
+    }
+
+    fetchPosts();
+  }, []);
 
   function toggleNewPostVisibleHandler() {
     setIsNewPostVisible(!isNewPostVisible);
