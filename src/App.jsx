@@ -11,12 +11,15 @@ import MainHeader from "./components/MainHeader";
 function App() {
   const [isNewPostVisible, setIsNewPostVisible] = useState(false);
   const [allPosts, setAllPosts] = useState([]);
+  const [isFetching, setIsFetching] = useState(false);
 
   useEffect(() => {
     async function fetchPosts() {
+      setIsFetching(true);
       const response = await fetch('http://localhost:8080/posts');
       const resData = await response.json();
       setAllPosts(resData.posts);
+      setIsFetching(false);
     }
 
     fetchPosts();
@@ -50,7 +53,10 @@ function App() {
       } */}
 
       <div className={classes.postBox}>
-        {allPosts.map((post) => <Post key={`post-${post.body}`} author={post.author} body={post.body} />)}
+        {!isFetching 
+          ? allPosts.map((post) => <Post key={`post-${post.body}`} author={post.author} body={post.body} />)
+          : <p>Loading posts...</p>
+        }
       </div>
     </div>
 
