@@ -1,0 +1,4 @@
+.postBox {
+    display: flex;
+    flex-wrap: wrap;
+}
