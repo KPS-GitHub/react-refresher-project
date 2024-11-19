@@ -12,6 +12,7 @@ import PostList from "./components/PostList";
 
 function App() {
   const [isNewPostVisible, setIsNewPostVisible] = useState(false);
+  const [allPosts, setAllPosts] = useState([]);
 
   function toggleNewPostVisibleHandler() {
     setIsNewPostVisible(!isNewPostVisible);
@@ -23,7 +24,7 @@ function App() {
   if (isNewPostVisible) {
     newPostContent =
       <Modal toggleNewPostVisibleHandler={toggleNewPostVisibleHandler}>
-        <NewPostForm setAllPostsProp={setAllPosts} toggleNewPostVisibleHandlerProp={toggleNewPostVisibleHandler} />
+        <NewPostForm allPostsProp={allPosts} setAllPostsProp={setAllPosts} toggleNewPostVisibleHandlerProp={toggleNewPostVisibleHandler} />
       </Modal>;
   }
 
@@ -40,7 +41,7 @@ function App() {
       </>
     } */}
 
-        <PostList/>
+        <PostList allPostsProp={allPosts} setAllPostsProp={setAllPosts}/>
 
     </div>
 
