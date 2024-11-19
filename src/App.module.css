@@ -2,11 +2,6 @@
     padding: 0 10%;
 }
 
-.postBox {
-    display: flex;
-    flex-wrap: wrap;
-}
-
 .newPostButton {
     margin: 5rem;
     padding: 1rem 3rem;
