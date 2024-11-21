@@ -37,11 +37,11 @@
 
 .actions {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
     gap: 0.5rem;
 }
 
-.actions button {
+.actions button, .actions a {
     cursor: pointer;
     font: inherit;
     padding: 0.5rem 1.5rem;
@@ -49,19 +49,17 @@
     border-radius: 4px;
     background-color: #34036c;
     color: #e5d5f7;
+    text-decoration: none;
 }
 
 .actions button:hover {
     background-color: #23014a;
 }
 
-.actions button[type='button'] {
-    background-color: transparent;
+.actions a {
+    background: none;
 }
 
-.actions button[type='button']:hover {
-    color: #d1bee6;
-}
 
 .newPostBox {
     display: flex;

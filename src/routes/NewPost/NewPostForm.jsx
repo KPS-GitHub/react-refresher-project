@@ -1,8 +1,9 @@
 import { useState } from "react";
-import Post from "../Post";
+import Post from "../../components/Post";
 import classes from "./NewPostForm.module.css";
+import { Link } from "react-router-dom";
 
-function NewPostForm({ setAllPostsProp, toggleNewPostVisibleHandlerProp }) {
+function NewPostForm({ allPosts, setAllPosts }) {
     const [newPostBody, setNewPostBody] = useState('New Post Body');
     const [newPostAuthor, setNewPostAuthor] = useState('New Post Author');
 
@@ -32,13 +33,15 @@ function NewPostForm({ setAllPostsProp, toggleNewPostVisibleHandlerProp }) {
         })
 
         // add new post to the allPosts prop so that it displays on the page immediately
-        setAllPostsProp((allPostsProp) => {
-            // note: unshift() returns the length of the new array - I was originally trying to put the below line as the return statement, but that was resulting in allPosts state var to be set to the length of the posts data array instead of the posts data array itself
-            allPostsProp.unshift({body: postBody, author: postAuthor});
-            return (
-                allPostsProp
-            )
-        })
+        // // for some reason, the commented chunk below does not trigger the Posts component to re-render, despite properly updating the allPosts state, so I am using the line below (which is better anyway)
+        // setAllPosts((allPosts) => {
+        //     // note: unshift() returns the length of the new array - I was originally trying to put the below line as the return statement, but that was resulting in allPosts state var to be set to the length of the posts data array instead of the posts data array itself
+        //     allPosts.unshift({ body: postBody, author: postAuthor });
+        //     return (
+        //         allPosts
+        //     )
+        // })
+        setAllPosts((allPosts) => [{ body: postBody, author: postAuthor }, ...allPosts]);
 
         // reset the new post state values
         setNewPostBody('New Post Body');
@@ -54,7 +57,6 @@ function NewPostForm({ setAllPostsProp, toggleNewPostVisibleHandlerProp }) {
                 input.selectedIndex = 0;
             }
         });
-        toggleNewPostVisibleHandlerProp();
     }
 
 
@@ -69,7 +71,10 @@ function NewPostForm({ setAllPostsProp, toggleNewPostVisibleHandlerProp }) {
                     <label htmlFor="name">Your name</label>
                     <input type="text" id="name" required onChange={newPostAuthorChangeHandler} />
                 </p>
-                <button type="submit" >Submit</button>
+                <div className={classes.actions}>
+                    <Link to="..">Cancel</Link>
+                    <button type="submit" >Submit</button>
+                </div>
             </form>
             <div className={classes.newPostBox}>
                 <Post key='new-post' author={newPostAuthor} body={newPostBody} newPost={true} />
