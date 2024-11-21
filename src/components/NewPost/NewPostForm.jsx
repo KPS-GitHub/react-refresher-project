@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Post from "./Post";
+import Post from "../Post";
 import classes from "./NewPostForm.module.css";
 
 function NewPostForm({ setAllPostsProp, toggleNewPostVisibleHandlerProp }) {
