@@ -1,17 +1,14 @@
-import { useState } from "react";
 import classes from "./App.module.css";
 import PostList from "../components/PostList";
 import { Outlet } from "react-router-dom";
 
 
 function Posts() {
-  const [allPosts, setAllPosts] = useState([]);
-
   return (
     <>
-      <Outlet context={{ allPosts, setAllPosts }} />
+      <Outlet />
       <div className={classes.appWrap}>
-        <PostList allPostsProp={allPosts} setAllPostsProp={setAllPosts} />
+        <PostList />
       </div>
     </>
 
@@ -19,3 +16,11 @@ function Posts() {
 }
 
 export default Posts;
+
+
+
+export async function loader() {
+  const response = await fetch('http://localhost:8080/posts');
+  const resData = await response.json();
+  return resData.posts;
+}
