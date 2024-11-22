@@ -10,7 +10,7 @@ function PostList() {
         <div className={classes.postBox}>
             {
                 posts && posts.length > 0 &&
-                posts.map((post) => <Post key={`post-${post.body}`} author={post.author} body={post.body} />)
+                posts.map((post) => <Post key={`post-${post.body}`} id={post.id} author={post.author} body={post.body} />)
             }
             {
                 posts.length === 0 && (

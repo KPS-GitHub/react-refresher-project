@@ -1,11 +1,18 @@
 .post {
     background: black;
+    color: white;
     margin: 1rem;
     padding: .5rem;
     width: 15rem;
     min-height: 10rem;
     animation: animate-in 1s ease-out backwards;
 }
+
+.post a {
+  text-decoration: none;
+  color: white;
+}
+
 .newPost {
     background: darkslategray;
     position: relative;
