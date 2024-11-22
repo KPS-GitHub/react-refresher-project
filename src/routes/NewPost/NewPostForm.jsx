@@ -33,14 +33,6 @@ function NewPostForm({ allPosts, setAllPosts }) {
         })
 
         // add new post to the allPosts prop so that it displays on the page immediately
-        // // for some reason, the commented chunk below does not trigger the Posts component to re-render, despite properly updating the allPosts state, so I am using the line below (which is better anyway)
-        // setAllPosts((allPosts) => {
-        //     // note: unshift() returns the length of the new array - I was originally trying to put the below line as the return statement, but that was resulting in allPosts state var to be set to the length of the posts data array instead of the posts data array itself
-        //     allPosts.unshift({ body: postBody, author: postAuthor });
-        //     return (
-        //         allPosts
-        //     )
-        // })
         setAllPosts((allPosts) => [{ body: postBody, author: postAuthor }, ...allPosts]);
 
         // reset the new post state values
