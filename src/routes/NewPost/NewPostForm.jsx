@@ -32,7 +32,7 @@ function NewPostForm({ allPosts, setAllPosts }) {
             }
         })
 
-        // add new post to the allPosts prop so that it displays on the page immediately
+        // update the allPosts state array with the new post so that it displays on the page immediately
         setAllPosts((allPosts) => [{ body: postBody, author: postAuthor }, ...allPosts]);
 
         // reset the new post state values
